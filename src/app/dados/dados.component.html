@@ -1,0 +1,19 @@
+<div>
+    <h2>Lanzar Dados</h2>
+    <button (click)="lanzarDados()" [disabled]="lanzamientosRestantes === 0">Lanzar Dados</button>
+    <button (click)="reiniciarLanzamientos()">Reiniciar Lanzamientos</button>
+    
+    <h3>Resultados:</h3>
+    <ul>
+      <li *ngFor="let dado of resultados; let i = index">
+        {{ dado }} 
+        <button (click)="bloquearDado(i)">
+          {{ dadosBloqueados[i] ? 'Desbloquear' : 'Bloquear' }}
+        </button>
+        <span *ngIf="dadosBloqueados[i]">(Bloqueado)</span>
+      </li>
+    </ul>
+  
+    <h4>Lanzamientos Restantes: {{ lanzamientosRestantes }}</h4>
+  </div>
+  

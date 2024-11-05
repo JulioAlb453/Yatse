@@ -1,0 +1,28 @@
+<div>
+    <h2>Puntuación Total: {{ puntuacionTotal }}</h2>
+    
+    <h3>Resultados de los Dados:</h3>
+    <p *ngFor="let dado of resultado">{{ dado }}</p>
+  
+    <h3>Objetivos Menores</h3>
+    <ul>
+      <li *ngFor="let objetivo of objetivosMenores">
+        Valor: {{ objetivo.valor }} - 
+        Cantidad Mínima: {{ objetivo.cantidadMinima }} - 
+        Cumple: {{ (conteos[objetivo.valor] || 0) >= objetivo.cantidadMinima ? 'Sí' : 'No' }}
+      </li>
+    </ul>
+  
+    <h3>Objetivos Mayores</h3>
+    <ul>
+      <li *ngFor="let objetivo of objetivoMayores">
+        Valor: {{ objetivo.valor }} - 
+        Cantidad Mínima: {{ objetivo.cantidadMinima }} - 
+        Cumple: {{ (conteos[objetivo.valor] || 0) >= objetivo.cantidadMinima ? 'Sí' : 'No' }} -
+        Secuencia Baja: {{ objetivo.cantidadExtra !== undefined ? objetivo.cantidadExtra : 0 }} - 
+        Secuencia Alta: {{ objetivo.cantidadExtra1 !== undefined ? objetivo.cantidadExtra1 : 0 }} - 
+        Secuencia Extra: {{ objetivo.cantidadExtra2 !== undefined ? objetivo.cantidadExtra2 : 0 }}
+      </li>
+    </ul>
+  </div>
+  
